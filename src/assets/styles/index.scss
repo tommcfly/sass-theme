@@ -1,0 +1,8 @@
+@import "./variables";
+
+body {
+  @include theme {
+    background-color: themeVal("bgColor");
+    color: themeVal("font.color");
+  }
+}

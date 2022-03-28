@@ -1,0 +1,26 @@
+@import "./core";
+
+// 背景
+$headerBg: #454755;
+$tabBg: #30313f;
+
+$themeVals: (
+  dark: (
+    bgColor: #252531,
+    btnBgColor: #6b69f9,
+    borderColor: #363646,
+    font: (
+      color: #fff,
+    ),
+  ),
+  light: (
+    bgColor: #fff,
+    btnBgColor: #007aff,
+    borderColor: #d6d6d6,
+    font: (
+      color: #2c3e50,
+    ),
+  ),
+);
+
+$themeTest: "[data-theme=blackTest]";
