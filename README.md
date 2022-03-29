@@ -1,27 +1,24 @@
 # sass-theme
 
-[![Build][build-badge]][build]
-[![Coverage][coverage-badge]][coverage]
-[![Downloads][downloads-badge]][downloads]
-[![Size][bundle-size-badge]][bundle-size]
+A front-end multi-theme solution based on sass
 
-一个基于 sass 的前端多主题方案
+English | [中文文档](README_CN.md)
 
 ## Install
 
-将 styles 下的 scss 复制到 项目中。
+Copy the scss under styles into the project.
 
-本项目是 vue+vite 的示例，可下载到本地，安装依赖后，直接执行命令预览效果
+This project is an example of vue+vite, which can be downloaded locally. After installing the dependencies, directly execute the command to preview the effect
 
 ```sh
 npm run dev
-// 或者
+// or
 yarn dev
 ```
 
-## Use
+##Use
 
-在你需要使用主题的地方引入 scss 文件
+Import the scss file where you need to use the theme
 
 ```html
 <style>
@@ -29,7 +26,7 @@ yarn dev
 </style>
 ```
 
-在你需要支持多主题样式 include 主题样式
+When you need to support multiple theme styles include theme styles
 
 ```html
 <style>
@@ -41,15 +38,15 @@ yarn dev
 </style>
 ```
 
-切换主题处，动态设置 html 根节点的 data-theme 属性值
+When switching themes, dynamically set the value of the data-theme attribute of the html root node
 
 ```js
-document.documentElement.setAttribute("data-theme", "主题名")
+document.documentElement.setAttribute("data-theme", "theme name")
 ```
 
-## API
+##API
 
-需要设置特定主题的样式。比如需要设置 dark 主题下 img 样式的背景颜色
+Needs to be styled for a specific theme. For example, you need to set the background color of the img style under the dark theme
 
 ```html
 <style>
@@ -61,9 +58,9 @@ document.documentElement.setAttribute("data-theme", "主题名")
 </style>
 ```
 
-使用变量，不同的主题自动加载不同的样式。 比如 dark 和 light 主题下 img 样式的背景颜色:
+Using variables, different themes automatically load different styles. For example, the background color of img style under dark and light themes:
 
-variables.scss 中添加变量
+Add variables to variables.scss
 
 ```scss
 $themeVals: (
@@ -80,7 +77,7 @@ $themeVals: (
 );
 ```
 
-设置样式就不需要传递特殊的主题名称
+Setting styles doesn't require passing a special theme name
 
 ```scss
 <style>
@@ -92,9 +89,9 @@ $themeVals: (
 </style>
 ```
 
-可以结合 css 变量 var，实现动态颜色主题效果。
+It can be combined with css variable var to achieve dynamic color theme effect.
 
-在你要使用主题样式地方，这样定义。当然你也可以限制只有在某一个主题下才可以使用变量 var
+Where you want to use the theme style, define it like this. Of course, you can also restrict the use of variable var only under a certain theme
 
 ```scss
 <style>
@@ -102,7 +99,7 @@ h1 {
   color: var(--title-color);
 }
 
-// 限制只有 dark 主题才会生效
+// Restriction only applies to dark themes
 h1 {
   @include theme('dark') {
     color: var(--title-color);
@@ -111,14 +108,17 @@ h1 {
 </style>
 ```
 
-在页面上添加选择颜色输入框
+Add a select color input box on the page
 
 ```html
 <input type="color" v-model="titleColor" @input="handleTitleColor" />
 ```
 
-当颜色改变时，修改 var 变量的值
+When the color changes, modify the value of the var variable
 
 ```js
-document.documentElement.style.setProperty("--title-color", "输入框的颜色值")
+document.documentElement.style.setProperty(
+  "--title-color",
+  "The color value of the input box"
+)
 ```
